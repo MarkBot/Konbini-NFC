@@ -29,6 +29,8 @@ These chips use SPI to communicate, 4 required to interface
 Adafruit invests time and resources providing this open source code,
 please support Adafruit and open-source hardware by purchasing
 products from Adafruit!
+
+https://dl.espressif.com/dl/package_esp32_index.json
 */
 /**************************************************************************/
 #include <Wire.h>
