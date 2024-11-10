@@ -69,3 +69,62 @@ void loop(void) {
 
 }
 
+
+/*
+bool NFCHandler::writeDataToCard(uint8_t blockNumber, const char* data) {
+    uint8_t success;
+    uint8_t uid[] = {0, 0, 0, 0, 0, 0, 0};
+    uint8_t uidLength;
+
+    success = is_card_detected(uid, uidLength);
+    if (success) {
+        uint8_t keya[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+        success = nfc.mifareclassic_AuthenticateBlock(uid, uidLength, blockNumber, 0, keya);
+        if (success) {
+            uint8_t dataToWrite[16];
+            memset(dataToWrite, 0, 16);
+            strncpy((char*)dataToWrite, data, 16);
+
+            success = nfc.mifareclassic_WriteDataBlock(blockNumber, dataToWrite);
+            if (success) {
+                Serial.println("Data written successfully");
+                return verifyWrittenData(blockNumber, dataToWrite);
+            } else {
+                Serial.println("Failed to write data");
+            }
+        } else {
+            Serial.println("Authentication failed");
+        }
+    }
+    return false;
+}
+
+bool NFCHandler::readDataFromCard(uint8_t blockNumber, char* data, uint8_t* dataLength) {
+    uint8_t success;
+    uint8_t uid[] = {0, 0, 0, 0, 0, 0, 0};
+    uint8_t uidLength;
+
+    success = is_card_detected(uid, uidLength);
+    if (success) {
+        uint8_t keya[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+        success = nfc.mifareclassic_AuthenticateBlock(uid, uidLength, blockNumber, 0, keya);
+        if (success) {
+            uint8_t readData[16];
+            success = nfc.mifareclassic_ReadDataBlock(blockNumber, readData);
+            if (success) {
+                convertRawToString(readData, 16, data);
+                *dataLength = strlen(data);
+                Serial.print("Data read successfully : ");
+                Serial.println(data);
+                return true;
+            } else {
+                Serial.println("Failed to read data");
+            }
+        } else {
+            Serial.println("Authentication failed");
+        }
+    }
+    return false;
+}
+*/
+
